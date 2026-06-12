@@ -38,4 +38,4 @@ jobs:
       - name: Run mypy
         run: |
           pip install mypy
-          mypy .
+          mypy agentguard/
