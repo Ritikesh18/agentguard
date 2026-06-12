@@ -1,0 +1,59 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agentguard"
+version = "0.1.0"
+description = "Pre-execution budget enforcement for agentic AI workflows"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [
+    {name = "Ritikesh Choube", email = "ritikesh@example.com"}
+]
+keywords = ["ai", "agents", "budget", "cost", "enforcement", "llm"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+
+dependencies = [
+    "tiktoken>=0.7.0",
+]
+
+[project.optional-dependencies]
+langgraph = ["langchain>=0.1.0", "langgraph>=0.1.0"]
+bedrock = ["boto3>=1.28.0"]
+anthropic = ["anthropic>=0.7.0"]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.23.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "mypy>=1.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/ritikesh18/agentguard"
+Repository = "https://github.com/ritikesh18/agentguard.git"
+Issues = "https://github.com/ritikesh18/agentguard/issues"
+
+[tool.setuptools]
+packages = ["agentguard", "agentguard.core", "agentguard.integrations"]
+
+[tool.black]
+line-length = 100
+target-version = ['py310']
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true
