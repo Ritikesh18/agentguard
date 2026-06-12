@@ -9,5 +9,5 @@
 - AWS Bedrock integration via `wrap_bedrock_fn`
 - LangGraph `GuardCallback` integration with global and per-agent budgets
 - Pause policy with `PauseManager` (block/resume thread)
-- 41 tests passing (budget, enforcer, pricing, pause, LangGraph)
+- 49 tests passing (budget, enforcer, pricing, pause, LangGraph, decorator)
 - GitHub Actions CI workflow (pytest on 3.10/3.11/3.12, black, mypy) and PyPI publish workflow

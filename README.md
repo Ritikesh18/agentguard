@@ -172,25 +172,42 @@ except BudgetExceededError as e:
 
 ## Supported Models & Pricing
 
-AgentGuard includes hardcoded pricing for 12+ models:
+AgentGuard includes hardcoded pricing for 25+ models:
 
-**OpenAI:**
+**OpenAI — GPT-4o:**
 - `gpt-4o` ($0.0025 / 1k input, $0.01 / 1k output)
 - `gpt-4o-mini` ($0.00015 / 1k input, $0.0006 / 1k output)
+
+**OpenAI — GPT-4.1 (2025):**
+- `gpt-4.1` ($0.002 / 1k input, $0.008 / 1k output)
+- `gpt-4.1-mini` ($0.0004 / 1k input, $0.0016 / 1k output)
+- `gpt-4.1-nano` ($0.0001 / 1k input, $0.0004 / 1k output)
+
+**OpenAI — Reasoning:**
+- `o1` ($0.015 / 1k input, $0.06 / 1k output)
+- `o3` ($0.01 / 1k input, $0.04 / 1k output)
+- `o3-mini` / `o4-mini` ($0.0011 / 1k input, $0.0044 / 1k output)
+
+**OpenAI — Legacy:**
 - `gpt-4-turbo` ($0.01 / 1k input, $0.03 / 1k output)
 - `gpt-3.5-turbo` ($0.0005 / 1k input, $0.0015 / 1k output)
 
-**Anthropic:**
+**Anthropic — Claude 4 (2025/2026):**
+- `claude-opus-4` ($0.015 / 1k input, $0.075 / 1k output)
+- `claude-sonnet-4` ($0.003 / 1k input, $0.015 / 1k output)
+
+**Anthropic — Claude 3.7 / 3.5:**
+- `claude-3-7-sonnet` ($0.003 / 1k input, $0.015 / 1k output)
 - `claude-3-5-sonnet` ($0.003 / 1k input, $0.015 / 1k output)
 - `claude-3-5-haiku` ($0.0008 / 1k input, $0.004 / 1k output)
 - `claude-3-opus` ($0.015 / 1k input, $0.075 / 1k output)
 
-**Azure & AWS:**
-- `azure/gpt-4o` (same as OpenAI gpt-4o)
-- `bedrock/claude-3-5-sonnet`
-- `bedrock/llama3-70b`
+**Azure & AWS Bedrock:**
+- `azure/gpt-4o`, `azure/gpt-4o-mini`, `azure/gpt-4.1`
+- `bedrock/claude-3-5-sonnet`, `bedrock/claude-3-7-sonnet`
+- `bedrock/llama3-70b`, `bedrock/llama3-8b`
 
-**Fuzzy matching:** Model names with date suffixes (e.g., `gpt-4o-2024-11-20`) automatically match their base model.
+**Fuzzy matching:** Model names with date suffixes (e.g., `gpt-4o-2024-11-20`, `claude-sonnet-4-20250514`) automatically match their base model.
 
 ---
 
