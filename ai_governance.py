@@ -13,15 +13,17 @@ from agentguard import guard, Budget
 from agentguard.core.enforcer import Enforcer
 from agentguard.exceptions import BudgetExceededError
 
-
 # ---------------------------------------------------------------------------
 # Pattern 1: @guard decorator
 # ---------------------------------------------------------------------------
 
+
 @guard(max_usd=0.005, on_breach="kill")
 def research_agent(prompt: str) -> str:
     """Simulates a research agent that makes an LLM call."""
-    enforcer: Enforcer = __import__("agentguard.decorator", fromlist=["get_active_enforcer"]).get_active_enforcer()
+    enforcer: Enforcer = __import__(
+        "agentguard.decorator", fromlist=["get_active_enforcer"]
+    ).get_active_enforcer()
     # Simulate: record a small call (100 prompt + 50 completion tokens on gpt-4o-mini)
     enforcer.tracker.record_call(100, 50, "gpt-4o-mini", agent_id="researcher")
     return f"Research result for: {prompt}"
@@ -30,6 +32,7 @@ def research_agent(prompt: str) -> str:
 # ---------------------------------------------------------------------------
 # Pattern 2: Budget context manager with shared budget
 # ---------------------------------------------------------------------------
+
 
 def run_pipeline():
     with Budget(max_usd=0.001, on_breach="warn") as b:
@@ -43,6 +46,7 @@ def run_pipeline():
 # Pattern 3: Explicit breach to show error fields
 # ---------------------------------------------------------------------------
 
+
 def simulate_breach():
     b = Budget(max_usd=0.00001, on_breach="kill")
     # Pre-fill the tracker so the next check tips it over
@@ -55,6 +59,7 @@ def simulate_breach():
 # ---------------------------------------------------------------------------
 # main
 # ---------------------------------------------------------------------------
+
 
 def main():
     print("=" * 55)

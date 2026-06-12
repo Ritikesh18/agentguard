@@ -57,7 +57,9 @@ class BreachResult:
     """Result of a pre-call budget check."""
 
     is_breach: bool
-    breach_type: Optional[Literal["token_limit", "usd_limit"]] = None  # 'token_limit' or 'usd_limit'
+    breach_type: Optional[Literal["token_limit", "usd_limit"]] = (
+        None  # 'token_limit' or 'usd_limit'
+    )
     overage_usd: float = 0.0
     overage_tokens: int = 0
 

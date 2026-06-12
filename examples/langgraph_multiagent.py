@@ -9,13 +9,14 @@ from agentguard.integrations.langgraph import GuardCallback
 
 def setup_multiagent_guard(graph):
     per_agent = {
-        'researcher': 1.00,
-        'writer': 0.50,
-        'reviewer': 0.25,
+        "researcher": 1.00,
+        "writer": 0.50,
+        "reviewer": 0.25,
     }
-    guard_cb = GuardCallback(per_agent_budgets=per_agent, on_breach='kill')
-    graph.callbacks = getattr(graph, 'callbacks', []) + [guard_cb]
+    guard_cb = GuardCallback(per_agent_budgets=per_agent, on_breach="kill")
+    graph.callbacks = getattr(graph, "callbacks", []) + [guard_cb]
     return guard_cb
 
-if __name__ == '__main__':
-    print('Attach multi-agent GuardCallback to your graph. Use agent name in metadata.')
+
+if __name__ == "__main__":
+    print("Attach multi-agent GuardCallback to your graph. Use agent name in metadata.")
