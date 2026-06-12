@@ -13,12 +13,12 @@ A team's 4-agent LangGraph pipeline ran in an infinite loop for 11 days.
 ## Install
 
 ```bash
-pip install agentguard
+pip install agentguard-enforce
 ```
 
 For LangGraph/LangChain integration:
 ```bash
-pip install agentguard[langgraph]
+pip install agentguard-enforce[langgraph]
 ```
 
 ---
